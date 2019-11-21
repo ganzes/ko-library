@@ -7,6 +7,4 @@ import lombok.Getter;
 @AllArgsConstructor
 public class BookRentInfoDto {
     private Long id;
-    private String bookRent;
-    private String bookRentStatus;
 }

@@ -5,7 +5,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.util.Date;
+import java.time.LocalDate;
 
 @NoArgsConstructor
 @Getter
@@ -31,6 +31,6 @@ public class Reader {
     @Getter
     @Setter
     @Column(name = "READER_ACCOUNT_DATE_CREATED")
-    private Date accountDateCreated;
+    private LocalDate accountDateCreated;
 
 }
