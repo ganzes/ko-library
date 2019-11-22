@@ -12,11 +12,16 @@ import java.time.LocalDate;
 @Entity(name = "READERS")
 public class Reader {
 
+    public Reader(String name, String lastName, LocalDate accountDateCreated) {
+        this.name = name;
+        this.lastName = lastName;
+        this.accountDateCreated = accountDateCreated;
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "READER_ID", unique = true)
     private Long id;
-
 
     @Getter
     @Setter
