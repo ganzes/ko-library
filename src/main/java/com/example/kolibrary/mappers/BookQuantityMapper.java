@@ -4,17 +4,32 @@ import com.example.kolibrary.domains.BookQuantity;
 import com.example.kolibrary.domains.BookQuantityDto;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 @Component
 public class BookQuantityMapper {
 
-    public BookQuantity mapToBookQuantity(BookQuantityDto bookQuantityDto) {
+    public BookQuantity mapToBookQuantity(final BookQuantityDto bookQuantityDto) {
         return new BookQuantity(
         );
     }
-    public BookQuantityDto mapToBookQuantityDto(BookQuantity bookQuantity){
+    public BookQuantityDto mapToBookQuantityDto(final BookQuantity bookQuantity){
         return new BookQuantityDto(
                 bookQuantity.getBookQtyID(),
                 bookQuantity.getBookQtyStatus()
         );
+    }
+
+    public List<BookQuantity> mapToBookQuantityList(final List<BookQuantityDto> bookQuantityDtoList){
+        return bookQuantityDtoList.stream()
+                .map(this::mapToBookQuantity)
+                .collect(Collectors.toList());
+    }
+
+    public List<BookQuantityDto> mapToBookQuantityListDto(final List<BookQuantity> bookQuantityList){
+        return bookQuantityList.stream()
+                .map(this::mapToBookQuantityDto)
+                .collect(Collectors.toList());
     }
 }

@@ -12,6 +12,12 @@ import javax.persistence.*;
 @Entity(name = "BOOK_TITLES")
 public class BookTitles {
 
+    public BookTitles(String bookTitle, String bookAuthor, int bookYearPublication) {
+        this.bookTitle = bookTitle;
+        this.bookAuthor = bookAuthor;
+        this.bookYearPublication = bookYearPublication;
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "BOOK_TITLE_ID", unique = true)

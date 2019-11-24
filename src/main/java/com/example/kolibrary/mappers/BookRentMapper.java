@@ -4,15 +4,19 @@ import com.example.kolibrary.domains.BookRent;
 import com.example.kolibrary.domains.BookRentDto;
 import org.springframework.stereotype.Component;
 
+import java.awt.print.Book;
+import java.util.List;
+import java.util.stream.Collectors;
+
 @Component
 public class BookRentMapper {
 
-    public BookRent mapToBookRent (BookRentDto bookRentDto){
+    public BookRent mapToBookRent (final BookRentDto bookRentDto){
         return new BookRent(
         );
     }
 
-    public BookRentDto mapToBookRentDto (BookRent bookRent){
+    public BookRentDto mapToBookRentDto (final BookRent bookRent){
         return new BookRentDto(
                 bookRent.getBookRentID(),
                 bookRent.getReaderID(),
@@ -20,5 +24,17 @@ public class BookRentMapper {
                 bookRent.getBookRentWithdrawnDate(),
                 bookRent.getBookRentReturnDate()
         );
+    }
+
+    public List<BookRent> mapToBookRentList (final List<BookRentDto> bookRentDtoList){
+        return bookRentDtoList.stream()
+                .map(this::mapToBookRent)
+                .collect(Collectors.toList());
+    }
+
+    public List<BookRentDto> mapToBookRentListDto(final List<BookRent> bookRentList){
+        return bookRentList.stream()
+                .map(this::mapToBookRentDto)
+                .collect(Collectors.toList());
     }
 }
