@@ -10,7 +10,7 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @Getter
 @Entity(name = "BOOK_RENTS")
-public class BookRentInfo {
+public class BookRent {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -19,8 +19,11 @@ public class BookRentInfo {
 
     @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name = "READER_ID")
-    private Reader reader;
+    private Reader readerID;
 
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinColumn(name = "BOOK_QUANTITY_ID")
+    private BookQuantity bookQuantityID;
 
     @Getter
     @Setter

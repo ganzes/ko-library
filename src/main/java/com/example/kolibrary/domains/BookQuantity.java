@@ -9,9 +9,9 @@ import javax.persistence.*;
 @NoArgsConstructor
 @Getter
 @Entity(name = "BOOK_QUANTITY")
-public class BookQtyInfo {
+public class BookQuantity {
 
-    public BookQtyInfo(String bookQtyStatus) {
+    public BookQuantity(String bookQtyStatus) {
         this.bookQtyStatus = bookQtyStatus;
     }
 

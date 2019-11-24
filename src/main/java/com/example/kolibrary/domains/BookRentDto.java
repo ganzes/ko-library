@@ -7,9 +7,10 @@ import java.time.LocalDate;
 
 @Getter
 @AllArgsConstructor
-public class BookRentInfoDto {
+public class BookRentDto {
     private Long bookRentID;
-    private Reader reader;
+    private Reader readerID;
+    private BookQuantity bookQuantityID;
     private LocalDate bookRentWithdrawnDate;
     private LocalDate bookRentReturnDate;
 

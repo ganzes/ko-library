@@ -10,32 +10,26 @@ import javax.persistence.*;
 @NoArgsConstructor
 @Getter
 @Entity(name = "BOOK_TITLES")
-public class BookInfoTitles {
-
-    public BookInfoTitles(String bookInfoTitle, String bookInfoAuthor, int bookInfoYearPublication) {
-        this.bookInfoTitle = bookInfoTitle;
-        this.bookInfoAuthor = bookInfoAuthor;
-        this.bookInfoYearPublication = bookInfoYearPublication;
-    }
+public class BookTitles {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "BOOK_TITLE_ID", unique = true)
-    private Long bookInfoTitleID;
+    private Long bookTitleID;
 
     @Getter
     @Setter
     @Column(name = "BOOK_TITLE")
-    private String bookInfoTitle;
+    private String bookTitle;
 
     @Getter
     @Setter
     @Column(name = "BOOK_AUTHOR")
-    private String bookInfoAuthor;
+    private String bookAuthor;
 
     @Getter
     @Setter
     @Column(name = "BOOK_YEAR_PUBLICATION")
-    private int bookInfoYearPublication;
+    private int bookYearPublication;
 
 }
