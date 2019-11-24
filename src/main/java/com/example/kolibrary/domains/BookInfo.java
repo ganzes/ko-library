@@ -20,21 +20,21 @@ public class BookInfo {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "BOOK_ID", unique = true)
+    @Column(name = "BOOK_INFO_ID", unique = true)
     private Long bookInfoID;
 
     @Getter
     @Setter
-    @Column(name = "BOOK_TITLE")
+    @Column(name = "BOOK_INFO_TITLE")
     private String bookInfoTitle;
 
     @Getter
     @Setter
-    @Column(name = "BOOK_AUTHOR")
+    @Column(name = "BOOK_INFO_AUTHOR")
     private String bookInfoAuthor;
 
     @Getter
     @Setter
-    @Column(name = "BOOK_YEAR_PUBLICATION")
+    @Column(name = "BOOK_INFO_YEAR_PUBLICATION")
     private int bookInfoYearPublication;
 }

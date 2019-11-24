@@ -17,7 +17,7 @@ public class ReaderService {
         return readerRepository.save(reader);
     }
 
-    public Reader getReaderById(final Long readerId) throws ReaderNotFoundException{
+    public Reader getReaderByID(final Long readerId) throws ReaderNotFoundException{
         return readerRepository.findById(readerId).orElseThrow(ReaderNotFoundException::new);
     }
 
@@ -34,7 +34,7 @@ public class ReaderService {
         return readerRepository.save(updatedReader);
     }
 
-    public void deleteReaderById(final Long readerId) throws ReaderNotFoundException {
+    public void deleteReaderByID(final Long readerId) throws ReaderNotFoundException {
         Reader deleteReader = readerRepository.findById(readerId).orElseThrow(ReaderNotFoundException::new);
 
         readerRepository.delete(deleteReader);

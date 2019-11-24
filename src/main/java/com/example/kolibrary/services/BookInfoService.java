@@ -18,7 +18,7 @@ public class BookInfoService {
         return bookInfoRepository.save(bookInfo);
     }
 
-    public BookInfo getBookInfoById(final Long bookInfoID) throws BookInfoNotFoundException{
+    public BookInfo getBookInfoByID(final Long bookInfoID) throws BookInfoNotFoundException{
         return bookInfoRepository.findById(bookInfoID).orElseThrow(BookInfoNotFoundException::new);
     }
 
