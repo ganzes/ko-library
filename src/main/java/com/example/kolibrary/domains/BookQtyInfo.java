@@ -20,9 +20,6 @@ public class BookQtyInfo {
     @Column(name = "BOOK_QUANTITY_ID", unique = true)
     private Long bookQtyID;
 
-
-
-
     @Getter
     @Setter
     @Column(name = "BOOK_QUANTITY_STATUS")

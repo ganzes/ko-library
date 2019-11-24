@@ -9,16 +9,15 @@ public class BookRentInfoMapper {
 
     public BookRentInfo mapToBookRentInfo (BookRentInfoDto bookRentInfoDto){
         return new BookRentInfo(
-                bookRentInfoDto.getDateOfBookWithdrawn(),
-                bookRentInfoDto.getDateOfBookReturn()
         );
     }
 
     public BookRentInfoDto mapToBookRentInfoDto (BookRentInfo bookRentInfo){
         return new BookRentInfoDto(
-                bookRentInfo.getId(),
-                bookRentInfo.getDateOfBookWithdrawn(),
-                bookRentInfo.getDateOfBookReturn()
+                bookRentInfo.getBookRentID(),
+                bookRentInfo.getReader(),
+                bookRentInfo.getBookRentWithdrawnDate(),
+                bookRentInfo.getBookRentReturnDate()
         );
     }
 }

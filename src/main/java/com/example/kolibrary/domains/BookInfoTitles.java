@@ -9,10 +9,10 @@ import javax.persistence.*;
 
 @NoArgsConstructor
 @Getter
-@Entity(name = "BOOK_INFO")
-public class BookInfo {
+@Entity(name = "BOOK_TITLES")
+public class BookInfoTitles {
 
-    public BookInfo(String bookInfoTitle, String bookInfoAuthor, int bookInfoYearPublication) {
+    public BookInfoTitles(String bookInfoTitle, String bookInfoAuthor, int bookInfoYearPublication) {
         this.bookInfoTitle = bookInfoTitle;
         this.bookInfoAuthor = bookInfoAuthor;
         this.bookInfoYearPublication = bookInfoYearPublication;
@@ -20,21 +20,22 @@ public class BookInfo {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "BOOK_INFO_ID", unique = true)
-    private Long bookInfoID;
+    @Column(name = "BOOK_TITLE_ID", unique = true)
+    private Long bookInfoTitleID;
 
     @Getter
     @Setter
-    @Column(name = "BOOK_INFO_TITLE")
+    @Column(name = "BOOK_TITLE")
     private String bookInfoTitle;
 
     @Getter
     @Setter
-    @Column(name = "BOOK_INFO_AUTHOR")
+    @Column(name = "BOOK_AUTHOR")
     private String bookInfoAuthor;
 
     @Getter
     @Setter
-    @Column(name = "BOOK_INFO_YEAR_PUBLICATION")
+    @Column(name = "BOOK_YEAR_PUBLICATION")
     private int bookInfoYearPublication;
+
 }

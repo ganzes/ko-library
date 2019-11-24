@@ -5,8 +5,8 @@ import lombok.Getter;
 
 @Getter
 @AllArgsConstructor
-public class BookInfoDto {
-    private Long bookInfoID;
+public class BookInfoTitlesDto {
+    private Long bookInfoTitleID;
     private String bookInfoTitle;
     private String bookInfoAuthor;
     private int bookInfoYearPublication;

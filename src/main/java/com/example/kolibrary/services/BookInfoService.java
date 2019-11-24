@@ -1,8 +1,8 @@
 package com.example.kolibrary.services;
 
-import com.example.kolibrary.domains.BookInfo;
-import com.example.kolibrary.exceptions.BookInfoNotFoundException;
-import com.example.kolibrary.repositories.BookInfoRepository;
+import com.example.kolibrary.domains.BookInfoTitles;
+import com.example.kolibrary.exceptions.BookInfoTitlesNotFoundException;
+import com.example.kolibrary.repositories.BookInfoTitlesRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,33 +12,33 @@ import java.util.List;
 public class BookInfoService {
 
     @Autowired
-    private BookInfoRepository bookInfoRepository;
+    private BookInfoTitlesRepository bookInfoTitlesRepository;
 
-    public BookInfo createBookInfo (final BookInfo bookInfo){
-        return bookInfoRepository.save(bookInfo);
+    public BookInfoTitles createBookInfo (final BookInfoTitles bookInfoTitles){
+        return bookInfoTitlesRepository.save(bookInfoTitles);
     }
 
-    public BookInfo getBookInfoByID(final Long bookInfoID) throws BookInfoNotFoundException{
-        return bookInfoRepository.findById(bookInfoID).orElseThrow(BookInfoNotFoundException::new);
+    public BookInfoTitles getBookInfoByID(final Long bookInfoID) throws BookInfoTitlesNotFoundException {
+        return bookInfoTitlesRepository.findById(bookInfoID).orElseThrow(BookInfoTitlesNotFoundException::new);
     }
 
-    public List<BookInfo> getBookInfoAll(){
-        return bookInfoRepository.findAll();
+    public List<BookInfoTitles> getBookInfoAll(){
+        return bookInfoTitlesRepository.findAll();
     }
 
-    public BookInfo updateBookInfo (final BookInfo bookInfo) throws BookInfoNotFoundException {
-        BookInfo bookInfoUpdated = bookInfoRepository.findById(bookInfo.getBookInfoID()).orElseThrow(BookInfoNotFoundException::new);
-        bookInfoUpdated.setBookInfoAuthor(bookInfo.getBookInfoAuthor());
-        bookInfoUpdated.setBookInfoTitle(bookInfo.getBookInfoTitle());
-        bookInfoUpdated.setBookInfoYearPublication(bookInfo.getBookInfoYearPublication());
+    public BookInfoTitles updateBookInfo (final BookInfoTitles bookInfoTitles) throws BookInfoTitlesNotFoundException {
+        BookInfoTitles bookInfoTitlesUpdated = bookInfoTitlesRepository.findById(bookInfoTitles.getBookInfoTitleID()).orElseThrow(BookInfoTitlesNotFoundException::new);
+        bookInfoTitlesUpdated.setBookInfoAuthor(bookInfoTitles.getBookInfoAuthor());
+        bookInfoTitlesUpdated.setBookInfoTitle(bookInfoTitles.getBookInfoTitle());
+        bookInfoTitlesUpdated.setBookInfoYearPublication(bookInfoTitles.getBookInfoYearPublication());
 
-        return bookInfoRepository.save(bookInfoUpdated);
+        return bookInfoTitlesRepository.save(bookInfoTitlesUpdated);
     }
 
-    public void deleteBookInfo(final Long bookInfoID) throws  BookInfoNotFoundException{
-        BookInfo bookInfo1 = bookInfoRepository.findById(bookInfoID).orElseThrow(BookInfoNotFoundException::new);
+    public void deleteBookInfo(final Long bookInfoID) throws BookInfoTitlesNotFoundException {
+        BookInfoTitles bookInfoTitles1 = bookInfoTitlesRepository.findById(bookInfoID).orElseThrow(BookInfoTitlesNotFoundException::new);
 
-        bookInfoRepository.delete(bookInfo1);
+        bookInfoTitlesRepository.delete(bookInfoTitles1);
     }
 
 

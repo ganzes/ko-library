@@ -9,26 +9,26 @@ import java.time.LocalDate;
 
 @NoArgsConstructor
 @Getter
-@Entity(name = "BOOK_RENT_INFO")
+@Entity(name = "BOOK_RENTS")
 public class BookRentInfo {
-
-    public BookRentInfo(LocalDate dateOfBookWithdrawn, LocalDate dateOfBookReturn) {
-        this.dateOfBookWithdrawn = dateOfBookWithdrawn;
-        this.dateOfBookReturn = dateOfBookReturn;
-    }
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "BOOK_RENT_ID", unique = true)
-    private Long id;
+    private Long bookRentID;
+
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinColumn(name = "READER_ID")
+    private Reader reader;
+
 
     @Getter
     @Setter
-    @Column(name = "BOOK_DATE_WITHDRAWN")
-    private LocalDate dateOfBookWithdrawn;
+    @Column(name = "BOOK_RENT_WITHDRAWN_DATE")
+    private LocalDate bookRentWithdrawnDate;
 
     @Getter
     @Setter
-    @Column(name = "BOOK_DATE_RETURN")
-    private LocalDate dateOfBookReturn;
+    @Column(name = "BOOK_RENT_RETURN_DATE")
+    private LocalDate bookRentReturnDate;
 }
