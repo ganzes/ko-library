@@ -9,14 +9,18 @@ public class BookInfoMapper {
 
     public BookInfo mapToBookInfo(BookInfoDto bookInfoDto){
         return new BookInfo(
-                bookInfoDto.getTitle(),
-                bookInfoDto.getStatus());
+                bookInfoDto.getBookInfoTitle(),
+                bookInfoDto.getBookInfoAuthor(),
+                bookInfoDto.getBookInfoYearPublication()
+        );
     }
 
     public BookInfoDto mapToBookInfoDto(BookInfo bookInfo){
         return new BookInfoDto(
-                bookInfo.getId(),
-                bookInfo.getTitle(),
-                bookInfo.getStatus());
+                bookInfo.getBookInfoID(),
+                bookInfo.getBookInfoTitle(),
+                bookInfo.getBookInfoAuthor(),
+                bookInfo.getBookInfoYearPublication()
+        );
     }
 }

@@ -18,8 +18,8 @@ public class BookInfoService {
         return bookInfoRepository.save(bookInfo);
     }
 
-    public BookInfo getBookInfoById(final Long bookInfoId) throws BookInfoNotFoundException{
-        return bookInfoRepository.findById(bookInfoId).orElseThrow(BookInfoNotFoundException::new);
+    public BookInfo getBookInfoById(final Long bookInfoID) throws BookInfoNotFoundException{
+        return bookInfoRepository.findById(bookInfoID).orElseThrow(BookInfoNotFoundException::new);
     }
 
     public List<BookInfo> getBookInfoAll(){
@@ -27,22 +27,16 @@ public class BookInfoService {
     }
 
     public BookInfo updateBookInfo (final BookInfo bookInfo) throws BookInfoNotFoundException {
-        BookInfo bookInfoUpdated = bookInfoRepository.findById(bookInfo.getId()).orElseThrow(BookInfoNotFoundException::new);
-        bookInfoUpdated.setStatus(bookInfo.getStatus());
-        bookInfoUpdated.setTitle(bookInfo.getTitle());
+        BookInfo bookInfoUpdated = bookInfoRepository.findById(bookInfo.getBookInfoID()).orElseThrow(BookInfoNotFoundException::new);
+        bookInfoUpdated.setBookInfoAuthor(bookInfo.getBookInfoAuthor());
+        bookInfoUpdated.setBookInfoTitle(bookInfo.getBookInfoTitle());
+        bookInfoUpdated.setBookInfoYearPublication(bookInfo.getBookInfoYearPublication());
 
         return bookInfoRepository.save(bookInfoUpdated);
     }
 
-    public BookInfo updateBookInfoStatus (final BookInfo bookInfo) throws BookInfoNotFoundException {
-        BookInfo bookInfoUpdatedStatus = bookInfoRepository.findById(bookInfo.getId()).orElseThrow(BookInfoNotFoundException::new);
-        bookInfoUpdatedStatus.setStatus(bookInfo.getStatus());
-
-        return bookInfoRepository.save(bookInfoUpdatedStatus);
-    }
-
-    public void deleteBookInfo(final Long bookInfo) throws  BookInfoNotFoundException{
-        BookInfo bookInfo1 = bookInfoRepository.findById(bookInfo).orElseThrow(BookInfoNotFoundException::new);
+    public void deleteBookInfo(final Long bookInfoID) throws  BookInfoNotFoundException{
+        BookInfo bookInfo1 = bookInfoRepository.findById(bookInfoID).orElseThrow(BookInfoNotFoundException::new);
 
         bookInfoRepository.delete(bookInfo1);
     }

@@ -8,16 +8,16 @@ import org.springframework.stereotype.Component;
 public class ReaderMapper {
     public Reader mapToReader (ReaderDto readerDto){
         return new Reader(
-                readerDto.getName(),
-                readerDto.getLastName(),
-                readerDto.getAccountDateCreated());
+                readerDto.getReaderName(),
+                readerDto.getReaderLastName(),
+                readerDto.getReaderAccountDateCreated());
     }
 
     public ReaderDto mapToReaderDto(Reader reader){
         return new ReaderDto(
-                reader.getId(),
-                reader.getName(),
-                reader.getLastName(),
-                reader.getAccountDateCreated());
+                reader.getReaderID(),
+                reader.getReaderName(),
+                reader.getReaderLastName(),
+                reader.getReaderAccountDateCreated());
     }
 }

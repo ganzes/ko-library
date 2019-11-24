@@ -26,9 +26,10 @@ public class ReaderService {
     }
 
     public Reader updateReader(final Reader reader) throws ReaderNotFoundException{
-        Reader updatedReader = readerRepository.findById(reader.getId()).orElseThrow(ReaderNotFoundException::new);
-        updatedReader.setName(reader.getName());
-        updatedReader.setName(reader.getLastName());
+        Reader updatedReader = readerRepository.findById(reader.getReaderID()).orElseThrow(ReaderNotFoundException::new);
+        updatedReader.setReaderName(reader.getReaderName());
+        updatedReader.setReaderLastName(reader.getReaderLastName());
+        updatedReader.setReaderAccountDateCreated(reader.getReaderAccountDateCreated());
 
         return readerRepository.save(updatedReader);
     }
