@@ -9,5 +9,6 @@ import lombok.NoArgsConstructor;
 @Getter
 public class BookQuantityDto {
     private Long bookQtyID;
+    private BookTitles bookTitleID;
     private String bookQtyStatus;
 }

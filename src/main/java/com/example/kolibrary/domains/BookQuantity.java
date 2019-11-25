@@ -18,6 +18,10 @@ public class BookQuantity {
     @Column(name = "BOOK_QUANTITY_ID", unique = true)
     private Long bookQtyID;
 
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinColumn(name = "BOOK_TITLE_ID")
+    private BookTitles bookTitleID;
+
     @Getter
     @Setter
     @Column(name = "BOOK_QUANTITY_STATUS")

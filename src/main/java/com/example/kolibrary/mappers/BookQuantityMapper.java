@@ -17,6 +17,7 @@ public class BookQuantityMapper {
     public BookQuantityDto mapToBookQuantityDto(final BookQuantity bookQuantity){
         return new BookQuantityDto(
                 bookQuantity.getBookQtyID(),
+                bookQuantity.getBookTitleID(),
                 bookQuantity.getBookQtyStatus()
         );
     }
