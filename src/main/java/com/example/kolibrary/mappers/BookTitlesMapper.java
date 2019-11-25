@@ -12,6 +12,9 @@ public class BookTitlesMapper {
 
     public BookTitles mapToBookTitles(final BookTitlesDto bookTitlesDto){
         return new BookTitles(
+                bookTitlesDto.getBookTitle(),
+                bookTitlesDto.getBookAuthor(),
+                bookTitlesDto.getBookYearPublication()
         );
     }
 

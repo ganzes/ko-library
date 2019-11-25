@@ -1,19 +1,17 @@
 package com.example.kolibrary.domains;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
 
+@AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Entity(name = "BOOK_QUANTITY")
 public class BookQuantity {
-
-    public BookQuantity(String bookQtyStatus) {
-        this.bookQtyStatus = bookQtyStatus;
-    }
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

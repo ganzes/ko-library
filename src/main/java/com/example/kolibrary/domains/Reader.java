@@ -1,12 +1,15 @@
 package com.example.kolibrary.domains;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.time.LocalTime;
 
+@AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Entity(name = "READERS")
@@ -15,7 +18,7 @@ public class Reader {
     public Reader(String readerName, String readerLastName, LocalDate readerAccountDateCreated) {
         this.readerName = readerName;
         this.readerLastName = readerLastName;
-        this.readerAccountDateCreated = readerAccountDateCreated;
+        this.readerAccountDateCreated = LocalDate.now();
     }
 
     @Id
