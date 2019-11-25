@@ -21,7 +21,7 @@ public class ReaderController {
     @Autowired
     private ReaderMapper readerMapper;
 
-    @PostMapping(value = "/createreader", consumes = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(value = "/createReader", consumes = MediaType.APPLICATION_JSON_VALUE)
     public void createReader(@RequestBody ReaderDto readerDto){
         readerService.createReader(readerMapper.mapToReader(readerDto));
     }

@@ -22,12 +22,12 @@ public class BookRentController {
     @Autowired
     private BookRentMapper bookRentMapper;
 
-    @PostMapping(value = "/createbookrent", consumes = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(value = "/createBookRent", consumes = MediaType.APPLICATION_JSON_VALUE)
     public void createBookRent(@RequestBody BookRentDto bookRentDto){
         bookRentService.createBookRent(bookRentMapper.mapToBookRent(bookRentDto));
     }
 
-    @PutMapping(value = "/bookrentwithdrawn")
+    @PutMapping(value = "/bookRentWithdrawn")
     public BookRentDto bookRentWithdrawn(@RequestParam BookRentDto bookRentDto) throws BookRentNotFoundException {
         BookRent bookRentWithdrawn = bookRentService.rentWithdrawDate(bookRentMapper.mapToBookRent(bookRentDto));
         bookRentWithdrawn.setBookRentWithdrawnDate(LocalDate.now());
@@ -35,7 +35,7 @@ public class BookRentController {
         return bookRentMapper.mapToBookRentDto(bookRentWithdrawn);
     }
 
-    @PutMapping(value = "/bookrentreturn")
+    @PutMapping(value = "/bookRentReturn")
     public BookRentDto bookRentReturn(@RequestParam BookRentDto bookRentDto) throws BookRentNotFoundException {
         BookRent bookRentReturn = bookRentService.rentWithdrawDate(bookRentMapper.mapToBookRent(bookRentDto));
         bookRentReturn.setBookRentReturnDate(LocalDate.now());

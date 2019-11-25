@@ -22,24 +22,24 @@ public class BookQuantityController {
     @Autowired
     private BookQuantityMapper bookQuantityMapper;
 
-    @PostMapping(value = "/createbookquantity", consumes = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(value = "/createBookQuantity", consumes = MediaType.APPLICATION_JSON_VALUE)
     public void createBookQuantity(@RequestBody BookQuantityDto bookQuantityDto){
         bookQuantityService.createQuantity(bookQuantityMapper.mapToBookQuantity(bookQuantityDto));
     }
 
-    @PutMapping(value = "/changestatus")
+    @PutMapping(value = "/changeStatus")
     public BookQuantityDto changeBookQuantityStatus(@RequestBody BookQuantityDto bookQuantityDto) throws BookQuantityNotFoundException{
         BookQuantity bookQuantityChangedStatus = bookQuantityService.updateQuantityStatus(bookQuantityMapper.mapToBookQuantity(bookQuantityDto));
         return bookQuantityMapper.mapToBookQuantityDto(bookQuantityChangedStatus);
     }
 
-    @PutMapping(value = "/changestatustolost")
+    @PutMapping(value = "/changeStatusToLost")
     public void changeBookQuantityStatusToLost(@RequestParam Long bookQuantityID) throws BookQuantityNotFoundException{
         //bookQuantityMapper.mapToBookQuantityDto(bookQuantityService.updateQuantityStatusLost(bookQuantityID));
         bookQuantityService.updateQuantityStatusLost(bookQuantityID);
     }
 
-    @GetMapping(value = "/checkquantity")
+    @GetMapping(value = "/checkQuantity")
     public List<BookQuantityDto> getAllQuantity() throws BookQuantityNotFoundException{
         return bookQuantityMapper.mapToBookQuantityListDto(bookQuantityService.getQuantityAll());
     }

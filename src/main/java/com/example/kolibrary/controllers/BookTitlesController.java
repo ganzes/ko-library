@@ -20,7 +20,7 @@ public class BookTitlesController {
     @Autowired
     private BookTitlesMapper bookTitlesMapper;
 
-    @PostMapping(value = "/createbooktitle", consumes = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(value = "/createBookTitle", consumes = MediaType.APPLICATION_JSON_VALUE)
     public void createBookTitle(@RequestBody BookTitlesDto bookTitlesDto){
         bookTitlesService.createBookTitle(bookTitlesMapper.mapToBookTitles(bookTitlesDto));
     }
