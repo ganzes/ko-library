@@ -18,7 +18,9 @@ public class BookQuantity {
     @Column(name = "BOOK_QUANTITY_ID", unique = true)
     private Long bookQtyID;
 
-    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @Getter
+    @Setter
+    @ManyToOne (cascade = CascadeType.ALL)
     @JoinColumn(name = "BOOK_TITLE_ID")
     private BookTitles bookTitleID;
 

@@ -23,7 +23,8 @@ public class BookTitlesMapper {
                 bookTitles.getBookTitleID(),
                 bookTitles.getBookTitle(),
                 bookTitles.getBookAuthor(),
-                bookTitles.getBookYearPublication()
+                bookTitles.getBookYearPublication(),
+                bookTitles.getBookQuantityList()
         );
     }
 
