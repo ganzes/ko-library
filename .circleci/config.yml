@@ -39,4 +39,4 @@ jobs:
           key: v1-dependencies-{{ checksum "build.gradle" }}
 
       # run tests!
-      - run: ./gradlew sonarqube -Dsonar.projectKey=ganzes_ko-library -Dsonar.organization=ganzes-1test -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=c20a4bad9f4667dcf3b92304f3ee32f2911f2b83
+      - run: ./gradlew sonarqube -Dsonar.projectKey=ganzes_ko-library -Dsonar.organization=ganzes-1test -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=54137e2c2609122691d8053fb519d526719bdd5c
