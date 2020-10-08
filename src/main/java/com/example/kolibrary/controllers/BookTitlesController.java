@@ -1,6 +1,8 @@
 package com.example.kolibrary.controllers;
 
+import com.example.kolibrary.domains.BookQuantity;
 import com.example.kolibrary.domains.BookQuantityDto;
+import com.example.kolibrary.domains.BookTitles;
 import com.example.kolibrary.domains.BookTitlesDto;
 import com.example.kolibrary.exceptions.BookQuantityNotFoundException;
 import com.example.kolibrary.exceptions.BookTitlesNotFoundException;
@@ -12,6 +14,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@CrossOrigin("*")
 @RestController
 @RequestMapping("v1/titles")
 public class BookTitlesController {
@@ -30,5 +33,11 @@ public class BookTitlesController {
     @GetMapping(value = "/getAllBookTitles")
     public List<BookTitlesDto> getAllBookTitles() throws BookTitlesNotFoundException {
         return bookTitlesMapper.mapToBookTitlesDto(bookTitlesService.getBookInfoAll());
+    }
+
+    @PutMapping(value = "/updateBook")
+    public BookTitlesDto updateBook(@RequestBody BookTitlesDto bookTitlesDto) throws BookQuantityNotFoundException{
+        BookTitles bookTitlesUpdate = bookTitlesService.updateBookInfo(bookTitlesMapper.mapToBookTitles(bookTitlesDto));
+        return bookTitlesMapper.mapToBBookTitlesDto(bookTitlesUpdate);
     }
 }

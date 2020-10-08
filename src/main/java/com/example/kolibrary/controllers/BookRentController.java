@@ -2,7 +2,6 @@ package com.example.kolibrary.controllers;
 
 import com.example.kolibrary.domains.BookRent;
 import com.example.kolibrary.domains.BookRentDto;
-import com.example.kolibrary.exceptions.BookQuantityNotFoundException;
 import com.example.kolibrary.exceptions.BookRentNotFoundException;
 import com.example.kolibrary.mappers.BookRentMapper;
 import com.example.kolibrary.services.BookRentService;
@@ -12,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
 
+@CrossOrigin("*")
 @RestController
 @RequestMapping("v1/rents")
 public class BookRentController {
