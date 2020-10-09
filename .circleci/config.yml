@@ -40,7 +40,7 @@ jobs:
 
       # run tests!
       - run: gradle test
-      - run: ./gradlew sonarqube -Dsonar.projectKey=ko-library -Dsonar.organization=ganzes -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=a585e1795c49f1559b0fedff8193e3efbafd9f99
+      - run: ./gradlew sonarqube -Dsonar.projectKey=ko-library -Dsonar.organization=ganzes -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=21f9957582858b1348d10a19a8ef4b42113f8c91
       - run:
           name: Analyze on SonarCloud
           command: gradle build sonarqube"
