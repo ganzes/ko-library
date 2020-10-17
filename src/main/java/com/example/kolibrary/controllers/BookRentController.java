@@ -42,5 +42,4 @@ public class BookRentController {
 
         return bookRentMapper.mapToBookRentDto(bookRentReturn);
     }
-
 }
