@@ -40,7 +40,4 @@ public class BookTitlesService {
 
         bookTitlesRepository.delete(bookTitles1);
     }
-
-
-
 }
