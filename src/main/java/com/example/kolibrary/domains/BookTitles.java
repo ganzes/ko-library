@@ -51,6 +51,4 @@ public class BookTitles {
     )
     private List<BookQuantity> bookQuantityList = new ArrayList<>();
 
-
-
 }
